@@ -16,22 +16,10 @@ def import_phases(file_name):
             self.CTE=CTE
             self.max_temp=max_temp
 
-
-
-#    file_name='phase_data.xlsx'
     data=(pd.read_excel(file_name,sheet_name=None))
     master=data[data.keys()[0]]
 
     property_names=list(master)[:-1]
-#    for prop in property_names:
-#        if 'cte' in prop.lower():
-#            cte_column_name=prop
-    #        print ('yes')
-#    phase_names=master.index.values
-
-    #for phase_name in phase_names:
-    #    master[cte_column_name][phase_name]=(master[cte_column_name][phase_name]).split(',')
-
     master_phases_data={}
     for phase_name in master.index.values:
         cte=master[property_names[0]][phase_name].split(',')[:-1]
